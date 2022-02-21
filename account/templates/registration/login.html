@@ -9,7 +9,7 @@
         Spróbuj ponownie.
         </p>
     {% else %}
-        <p>Wypełnij ponizszy formularz, aby sie zalogowac:</p>
+        <p>Wypełnij ponizszy formularz, aby sie zalogowac. Jeżeli nie masz jeszcze konta, możesz je utworzyć tutaj <a href="{% url "register" %}"><button>TUTAJ</button></a></p>
     {% endif %}
     <div class="login-form">
         <form action="{% url 'login' %}" method="post">

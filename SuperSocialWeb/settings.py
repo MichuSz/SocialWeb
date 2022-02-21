@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 from .secret import password, mail
 
@@ -148,3 +148,8 @@ EMAIL_HOST_PASSWORD = password
 EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
+
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
