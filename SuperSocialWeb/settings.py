@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ds!lgnbm5x9xpw_x4kzn4g$v9g94jyf9b=s)n-nkit@an9@hfy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['supersocialweb.pl','localhost','127.0.0.1']
 
 
 # Application definition
@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'social_django',
+    'django_extensions',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -109,6 +111,8 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 
 # Internationalization
@@ -159,3 +163,11 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
 # DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '303703505183459'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'cb4cf0f0eb8f29931e963b0a1c90a931'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '530741917819-mk33lqf45pc4j3k5ij0md74dunh8v4kg.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
