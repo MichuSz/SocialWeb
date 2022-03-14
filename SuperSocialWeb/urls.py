@@ -8,7 +8,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/',include('account.urls')),
     path('', views.dashboard, name="dashboard"),
-    path('social-auth/',include('social_django.urls',namespace='social')),
+    path('social-auth/',include('social_django.urls', namespace='social')),
+    path('images/',include('images.urls', namespace='images')),
 
 ]
 
