@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os.path
 from pathlib import Path
 from .secret import password, mail
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'images.apps.ImagesConfig',
     'easy_thumbnails',
+    'actions.apps.ActionsConfig',
 ]
 
 MIDDLEWARE = [
@@ -174,3 +176,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '530741917819-mk33lqf45pc4j3k5ij0md74dunh8v4kg.a
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 THUMBNAIL_DEBUG=True
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',args=[u.username])
+}
